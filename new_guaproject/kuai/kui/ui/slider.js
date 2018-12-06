@@ -7,7 +7,7 @@ const Color = require('../color')
 const log = require('../utils').log
 
 class Slider extends GuaObject {
-    constructor(position, color1=Color.lightblue(), color2=Color.black()) {
+    constructor(position, color1=Color.lightblue(), color2=Color.blackblue()) {
         super()
         this.setup(position, color1, color2)
     }
@@ -21,7 +21,7 @@ class Slider extends GuaObject {
         self.color1 = color1
         self.color2 = color2
         self.size = {
-            w: 230,
+            w: 430,
             h: 10,
         }
         // 默认为 0
@@ -47,6 +47,7 @@ class Slider extends GuaObject {
             w: self.size.w * self.percent,
             h: self.size.h,
         }
+        // log('draw!!!', self.percent)
         self.drawRect(c2, self.color2)
     }
     mouseEvent(event) {
@@ -61,8 +62,10 @@ class Slider extends GuaObject {
             if (mouseInside) {
                 // 计算 x 在 size 的比例
                 let diff = x - this.position.x
+
                 let percent = diff / this.size.w
                 this.percent = percent
+                // log('click!!!', percent)
                 this.audio.currentTime = this.audio.duration * this.percent
             }
         }

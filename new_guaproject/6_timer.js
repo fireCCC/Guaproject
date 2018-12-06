@@ -16,7 +16,7 @@ class MainScene extends kuai.Scene {
         self.started = false
         // 已运行时间
         self.time = 0
-        self.defaultTimeText = '00: 00: 000'
+        self.defaultTimeText = '00: 00: 00'
         //
         self.addTimeLabel()
         self.addButtonStart()
@@ -71,7 +71,7 @@ class MainScene extends kuai.Scene {
                 self.started = false
                 //更新
                 self.time = 0
-                self.label.text = '00: 00: 000'
+                self.label.text = '00: 00: 00'
 
             },
         }
@@ -108,8 +108,11 @@ class MainScene extends kuai.Scene {
         let second = s.padStart(2, '0')
         // millisecond
         let ms = t.split('.')[1]
-        let millisecond = ms.padStart(3, '0')
+        let millisecond = ms.padStart(2, '0')
+
         let result = `${minute}: ${second}: ${millisecond}`
+        // let result = `${minute}: ${second}`
+
         // log('result', result)
         return result
     }

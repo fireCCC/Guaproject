@@ -11,6 +11,9 @@ class Color {
     static black() {
         return [0, 0, 0, 255]
     }
+    static blackblue() {
+        return [0, 134, 241, 255]
+    }
     static lightblue() {
         return [144, 218, 245, 255]
     }
